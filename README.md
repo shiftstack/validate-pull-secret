@@ -1,10 +1,10 @@
 # validate-pull-secret
 
-Checks that a pull secret can access all required resources for an OpenShift installation.
+Checks that a pull secret gives access to all the container images required for an OpenShift installation.
 
-If your bootstrap node keeps failing at pulling images, then you probably want to check that you passed `openshift-install` the required credentials in the pull-secret.
+Use case: if your bootstrap node keeps failing at pulling images, then you probably want to check that you passed `openshift-install` the required credentials in the pull-secret.
 
-This tool takes the pull secret filename as an argument and uses it to fetch the image manifests for all the openshift pods.
+This tool takes the pull secret filename as an argument and uses it to fetch the image manifests for all the openshift pods. It only downloads (`podman pull`) the release image pointed to by the `openshift-install` binary; access to the individual images is assessed by downloading the image manifests with Skopeo.
 
 ## Requirements
 
