@@ -26,3 +26,8 @@ For passing `openshift-install`'s path:
 ```shell
 ./validate-pull-secret -i ~/go/bin/openshift-install pull-secret.json
 ```
+
+If you know the address of the release image already, you can pass it without the need of having the corresponding `openshift-installer`:
+```shell
+./validate-pull-secret -r registry.openshift.example.com/ocp/release:4.3 pull-secret.json
+```
